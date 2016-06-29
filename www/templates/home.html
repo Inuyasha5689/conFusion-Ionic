@@ -7,7 +7,7 @@
             <span class="badge badge-assertive">{{dish.label}}</span>
         </div>
         <div class="item item-thumbnail-left item-text-wrap">
-            <img ng-src="{{dish.image}}" alt="Uthappizza" />
+            <img ng-src="{{baseURL+dish.image}}" alt="Uthappizza" />
             <h2>
                 {{dish.name}}
                 <span class="badge">{{dish.price | currency}}</span>
@@ -21,7 +21,7 @@
             <span class="badge badge-assertive">{{featuredPromotion.label}}</span>
         </div>
         <div class="item item-thumbnail-left item-text-wrap">
-            <img ng-src="{{promotion.image}}" alt="Uthappizza"/>
+            <img ng-src="{{baseURL+promotion.image}}" alt="Uthappizza"/>
             <h2>{{promotion.name}}</h2>
             <span class="badge">{{featuredPromotion.price | currency}}</span>
             <p>
@@ -35,7 +35,7 @@
             <span class="badge badge-assertive">{{leader.label}}</span>
         </div>
         <div class="item item-thumbnail-left item-text-wrap">
-            <img ng-src="{{leader.image}}" alt="Uthappizza"/>
+            <img ng-src="{{baseURL+leader.image}}" alt="Peter Pan"/>
             <h2>{{leader.name}}</h2>
             <span class="badge">{{leader.price | currency}}</span>
             <p>
