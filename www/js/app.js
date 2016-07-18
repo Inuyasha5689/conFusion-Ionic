@@ -131,7 +131,7 @@ angular.module('conFusion', ['ionic', 'ngCordova', 'conFusion.controllers', 'con
                 controller: 'DishDetailController',
                 resolve: {
                     dish: ['$stateParams','menuFactory', function ($stateParams, menuFactory){
-                        return menuFactory.get({id:parseInt($stateParams.id, 10)});
+                        return menuFactory.get({id: $stateParams.id});
                     }]
                 }
             }

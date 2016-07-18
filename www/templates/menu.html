@@ -17,7 +17,7 @@
   </div>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="dish in dishes | filter:{category: filtText}" href="#/app/menu/{{dish.id}}" class="item-thumbnail-left">
+      <ion-item ng-repeat="dish in dishes | filter:{category: filtText}" href="#/app/menu/{{dish._id}}" class="item-thumbnail-left">
         <img ng-src="{{baseURL+dish.image}}" />
         <h2>
             {{dish.name}}
@@ -28,7 +28,7 @@
             {{dish.description}}
         </p>
         <ion-option-button class="button-assertive icon ion-plus-circled"
-            ng-click="addFavorite({{dish.id}})">
+            ng-click="addFavorite({{dish._id}})">
         </ion-option-button>
       </ion-item>
     </ion-list>

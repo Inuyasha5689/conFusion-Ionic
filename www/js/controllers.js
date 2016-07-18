@@ -70,6 +70,42 @@ $localStorage, $ionicPlatform, $cordovaCamera, $cordovaImagePicker) {
         $scope.registerform.show();
     };
 
+    $ionicPlatform.ready( function () {
+        var options = {
+            maximumImagesCount: 1,
+            quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            allowEdit: true,
+            encodingType: Camera.EncodingType.JPEG,
+            width: 100,
+            targetWidth: 100,
+            height: 100,
+            targetHeight: 100,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+
+        $scope.takePicture = function() {
+            $cordovaCamera.getPicture(options).then(function (imageData) {
+                $scope.registration.imgSrc = "data:image/jpeg;base64," + imageData;
+            }, function (err) {
+                console.log(err);
+            });
+            $scope.registerform.show();
+        };
+
+        $scope.choosePicture = function () {
+            $cordovaImagePicker.getPictures(options)
+            .then(function (results) {
+                    $scope.registration.imgSrc =  results[0];
+            }, function(error) {
+                console.log(error);
+            });
+            $scope.registerform.show();
+        };
+    });
+
 })
 
 .controller('MenuController', ['$scope', 'dishes', 'favoriteFactory', 'baseURL',
@@ -160,7 +196,7 @@ $cordovaLocalNotification, $cordovaToast) {
     $scope.sendFeedback = function () {
 
 
-        if ($scope.feedback.agree && ($scope.feedback.mychannel == "")) {
+        if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
             $scope.invalidChannelSelection = true;
         } else {
             $scope.invalidChannelSelection = false;

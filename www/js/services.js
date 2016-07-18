@@ -155,7 +155,7 @@ angular.module('conFusion.services',['ngResource'])
                     <button dark outline type="button" ng-click=confirm("OK")>OK</button>\
                 </div>';
 
-                $scope.model.show({ template: message, plain: 'true'});
+                $scope.modal.show({ template: message, plain: 'true'});
            }
 
         );
